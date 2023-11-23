@@ -1,8 +1,9 @@
-# React + Vite
+# ICLIP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ICLIP merupakan sebuah website yang berisikan tentang informasi dan artikel mengenai film-film baik dulu maupun terkini.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Dikerjakan oleh Kelompok 2 Mata Kuliah Desain Web B yang beranggotakan :
+- Carmelita Angeline Tanujaya - 11211025
+- Dimas Pramudya - 11211032
+- Jihan Apriliani Nurhasanah - 11211046
+- Rudi Subriyanto - 11211079
