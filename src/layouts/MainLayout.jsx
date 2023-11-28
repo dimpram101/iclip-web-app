@@ -9,7 +9,7 @@ const MainLayout = () => {
       <Navbar />
 
       {/* dihapus aja bagian min-h-screen kalau gaperlu */}
-      <div className="text-white min-h-screen">
+      <div className="mt-[112px] text-white min-h-screen">
         <Outlet />
       </div>
 
