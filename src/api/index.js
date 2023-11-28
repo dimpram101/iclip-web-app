@@ -10,4 +10,8 @@ const api = axios.create({
   },
 });
 
+export const originalImageURL = `https://image.tmdb.org/t/p/original`;
+export const posterImageURL = `https://image.tmdb.org/t/p/w500`;
+
+
 export default api;
