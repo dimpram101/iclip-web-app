@@ -20,11 +20,7 @@ const RateReviewSection = ({ reviews }) => {
             <Divider className="opacity-25 my-2" />
             <div className="flex flex-1 flex-col gap-2 overflow-y-auto scroll ">
               <p className="text-lg leading-8">
-                {selectedReview?.content} Lorem ipsum dolor, sit amet
-                consectetur adipisicing elit. Voluptatum unde quo quis, ad vitae
-                dignissimos eum nesciunt saepe adipisci maxime cumque, veniam
-                dolore expedita facilis vel, corporis necessitatibus nemo
-                tempore.
+                {selectedReview?.content}
               </p>
             </div>
             <button

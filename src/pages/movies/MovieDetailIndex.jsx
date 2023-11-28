@@ -13,9 +13,9 @@ const MovieDetailIndex = () => {
   const [loading, setLoading] = useState(true);
   const location = useLocation();
 
-  // useLayoutEffect(() => {
-  //   document.documentElement.scrollTo(0, 0);
-  // }, [location.pathname]);
+  useLayoutEffect(() => {
+    document.documentElement.scrollTo(0, 0);
+  }, [location.pathname]);
 
   useEffect(() => {
     api
