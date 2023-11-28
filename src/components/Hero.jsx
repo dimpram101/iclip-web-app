@@ -8,17 +8,17 @@ const Hero = () => {
                     Your <span className="text-[#096FFD] bg-[#FFFFFF]">Best Movies Data </span>
                     <span className="break-words">to Help You Find Your Mood!</span> 
                     </h1>
-                    <h2 className = "text-[2.25rem] text-center font-thin">
-                    Boost your mood in every moment find 
-                    the treasure to pleasure your chill time.
+                    <h2 className="text-lg md:text-2xl text-center font-thin mb-4">
+                        Boost your mood in every moment, find
+                        the treasure to pleasure your chill time.
                     </h2>
-                    <div className = "bg-[#096FFD]" >
-                        <p className = "px-[7.44rem] py-[1.5rem] text-lg"  >Explore Now</p>
+                    <div className="bg-[#096FFD]">
+                        <p className="px-4 py-2 text-md md:text-lg">Explore Now</p>
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
+};
 
-}
- export default Hero
+export default Hero;
