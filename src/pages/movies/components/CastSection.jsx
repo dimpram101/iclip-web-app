@@ -7,7 +7,7 @@ const CastSection = ({ casts }) => {
       <h1 className="text-secondary text-2xl">Casts & Crews</h1>
       <div className="grid grid-cols-5 gap-8">
         {casts.map((cast) => (
-          <div className="flex flex-col h-fit items-center">
+          <div key={cast.id} className="flex flex-col h-fit items-center">
             <img
               src={
                 cast.profile_path
