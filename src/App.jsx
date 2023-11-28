@@ -25,7 +25,7 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
 
       {/* Routingan kalian */}
-      <Route path="/genre" element={<GenreIndex />} />
+      <Route path="/browse" element={<GenreIndex />} />
     </Route>
   )
 );

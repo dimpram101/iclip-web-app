@@ -5,6 +5,13 @@ import MovieCard from "./components/MovieCard";
 import { useCallback } from "react";
 import EmptyMovieCard from "./components/EmptyMovieCard";
 
+const selectBox = {
+  popular: "Popular",
+  now_playing: "Now Playing",
+  top_rated: "Top Rated",
+  upcoming: "Upcoming",
+};
+
 const GenreIndex = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -67,7 +74,7 @@ const GenreIndex = () => {
         <div className="w-full h-full bg-[#096FFD] bg-opacity-50 absolute top-0 left-0">
           <div className="max-w-screen-2xl mx-auto flex flex-col h-full justify-end pb-10">
             <p className="text-5xl font-semibold tracking-wider">
-              Browse All / Action
+              Browse All / {selectBox[selectedGenre]}
             </p>
           </div>
         </div>
