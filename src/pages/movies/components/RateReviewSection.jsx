@@ -28,6 +28,7 @@ const RateReviewSection = ({ reviews }) => {
               onClick={() => {
                 setShowModal(false);
                 setSelectedReview(null);
+                document.body.style.overflow = "auto";
               }}
             >
               Close
@@ -63,6 +64,7 @@ const RateReviewSection = ({ reviews }) => {
                         onClick={() => {
                           setSelectedReview(review);
                           setShowModal(true);
+                          document.body.style.overflow = "hidden";
                         }}
                       >
                         See Full
