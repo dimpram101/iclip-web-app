@@ -7,6 +7,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from "./pages/Home";
+import GenreIndex from "./pages/genre/GenreIndex";
+import MovieDetailIndex from "./pages/movies/MovieDetailIndex";
 
 // ini routingannya, disesuaikan aja nama routenya sama fitur kalian,
 // kalo mau bikin route baru, bikin <Route path="/nama-routenya" element={<NamaComponentnya />} />
@@ -21,9 +23,11 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<MainLayout />}>
       {/* KHUSUS AMEL PAKE ROUTINGAN DI BAWAH INI, TINGGAL GANTI SAMA COMPONENTNYA YAAA */}
-      <Route index element={<Home/>} />
+      <Route index element={<Home />} />
 
       {/* Routingan kalian */}
+      <Route path="/browse" element={<GenreIndex />} />
+      <Route path="/movie/:id" element={<MovieDetailIndex />} />
     </Route>
   )
 );

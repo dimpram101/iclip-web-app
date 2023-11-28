@@ -1,0 +1,17 @@
+import axios from "axios";
+
+const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+
+const api = axios.create({
+  baseURL: "https://api.themoviedb.org/3",
+  headers: {
+    Authorization: `Bearer ${API_KEY}`,
+    Accept: "application/json",
+  },
+});
+
+export const originalImageURL = `https://image.tmdb.org/t/p/original`;
+export const posterImageURL = `https://image.tmdb.org/t/p/w500`;
+
+
+export default api;
