@@ -49,7 +49,7 @@ const GenreIndex = () => {
     const handleScroll = () => {
       const { scrollTop, clientHeight, scrollHeight } =
         document.documentElement;
-      if (scrollTop + clientHeight >= scrollHeight) {
+      if (scrollTop + clientHeight >= scrollHeight - 30) {
         fetchMovies();
       }
     };

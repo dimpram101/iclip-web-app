@@ -28,6 +28,7 @@ const RateReviewSection = ({ reviews }) => {
               onClick={() => {
                 setShowModal(false);
                 setSelectedReview(null);
+                document.body.style.overflow = "auto";
               }}
             >
               Close
@@ -46,15 +47,15 @@ const RateReviewSection = ({ reviews }) => {
                   key={review.id}
                   className="h-64 w-[450px] flex-none bg-primary rounded-xl p-4 shadow-xl"
                 >
-                  <div className="flex h-full flex-col justify-between gap-3">
+                  <div className="flex h-full flex-col gap-3">
                     <div className="flex flex-row justify-between gap-2">
                       <h1 className="text-xl font-bold">{review.author}</h1>
                       <p className="text-xl font-bold">
-                        {review.author_details.rating}/10
+                        {review.author_details.rating ?? "?"}/10
                       </p>
                     </div>
                     <Divider className="opacity-25" />
-                    <p className="overflow-hidden text-ellipsis line-clamp-5">
+                    <p className="overflow-hidden text-ellipsis line-clamp-5 leading-7 flex-1">
                       {review.content}
                     </p>
                     <div className="flex flex-row justify-end">
@@ -63,6 +64,7 @@ const RateReviewSection = ({ reviews }) => {
                         onClick={() => {
                           setSelectedReview(review);
                           setShowModal(true);
+                          document.body.style.overflow = "hidden";
                         }}
                       >
                         See Full

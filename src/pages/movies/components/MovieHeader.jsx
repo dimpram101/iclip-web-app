@@ -10,7 +10,7 @@ const MovieHeader = ({ movie }) => {
         <img
           src={originalImageURL + "/" + movie.backdrop_path}
           alt=""
-          className="w-full h-full object-cover brightness-75"
+          className="w-full h-full object-cover brightness-75 object-top"
         />
       </div>
 
