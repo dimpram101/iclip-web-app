@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Hero = () => {
     return (
         <div className = "flex justify-center items-center flex-col bg-contain w-full min-h-screen" >
@@ -12,9 +14,9 @@ const Hero = () => {
                         Boost your mood in every moment, find
                         the treasure to pleasure your chill time.
                     </h2>
-                    <div className="bg-[#096FFD]">
+                    <Link to={'/browse'} className="bg-[#096FFD]">
                         <p className="px-4 py-2 text-md md:text-lg">Explore Now</p>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </div>
