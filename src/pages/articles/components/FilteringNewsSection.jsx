@@ -27,7 +27,7 @@ export default function FilteringNewsSection() {
 
 
   return (
-    <section className='max-w-screen-2xl mx-auto my-12 py-6 flex justify-end '>
+    <section className='max-w-screen-2xl mx-auto pt-6 pb-4 flex justify-end '>
     <form className='flex justify-center items-center'>
       <div class="mr-2">
         <label for="search" class="block text-gray-600 text-sm font-medium hidden">Search News</label>

@@ -1,38 +1,90 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
-export default function HeadlineSection() {
-  return (
-    <section className='flex flex-col md:flex-row h-[70vh]  max-w-screen-2xl mx-auto py-12'>
+export default function HeadlineSection({ firstHeadline = {}, secondHeadline = {}, isLoading }) {
+  const navigation = useNavigate();
 
-    <div className='flex-4 w-[70%] p-4 mr-8 flex shadow-lg shadow-black-500/50'>
+  const handleArticleClicked = (title) => {
+    navigation(`/articles/${title}`)
+  }
 
-      <div className='flex flex-col mr-3'>
-          <h1 className='text-4xl mb-2 underline underline-offset-4 hover:cursor-pointer'>
-            Tiffany Haddish DUI: Comedian says she will get help after driving under influence arrest
-          </h1>
-          <p className='flex-1 text-lg text-slate-400'>
-          Tiffany Haddish DUI: Comedian says she will get help after driving under influence arrest Published 10 hours ago Share close panel Share page Copy link About sharing Image source, Getty Images Image caption, Tiffany Haddish had been performing in Los Angeles a day before her arrest By Andre Rhoden-Paul BBC News Tiffany Haddish has said she is \"going to get some help\" after she was arrested on suspicion of driving under the influence.
-          
-           
-          </p>
+  const LoadingSkeleton = () => (
+    <>
+        <div className='flex-4 flex w-[70%] p-4 mr-8 flex shadow-lg shadow-black-500/50 border border-primary shadow'>
+        <div className='flex-1 flex-col mr-3 max-w-lg animate-pulse'>
+          <div className='h-16 w-[100%] bg-primary mb-2'></div>
+          <div className='h-16 w-[75%] bg-primary mb-8'></div>
+
+          <div className='h-4 w-[100%] bg-primary mb-2'></div>
+          <div className='h-4 w-[80%] bg-primary mb-2'></div>
+          <div className='h-4 w-[60%] bg-primary mb-2'></div>
+          <div className='h-4 w-[40%] bg-primary mb-2'></div>
+
+          <div className='h-4 w-[100%] bg-primary mb-2 mt-4'></div>
+          <div className='h-4 w-[80%] bg-primary mb-2'></div>
+          <div className='h-4 w-[60%] bg-primary mb-2'></div>
+          <div className='h-4 w-[40%] bg-primary mb-2'></div>
+        </div>
+        <div className='flex-1 h-[400px] max-w-xl animate-pulse bg-primary'></div>
       </div>
 
-      <img src="https://images.unsplash.com/photo-1682687982029-edb9aecf5f89?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className='flex-1 h-[400px]' alt="" />
 
-    </div>
+      <div class="border border-primary shadow rounded-md p-4 max-w-sm w-full mx-auto shadow-black-500/50">
+        <div class="animate-pulse flex flex-col ">
+          <div class="bg-primary h-[200px] w-[100%]"></div>
+          <div class="flex-1 flex-end py-1">
+            <div class="h-6 rounded my-2 bg-primary"></div>
+            <div class="h-6 rounded mr-8 bg-primary"></div>
 
-    <div className='flex-1 w-[30%] shadow-lg shadow-black-500/50'>
-    <img src="https://images.unsplash.com/photo-1682687982029-edb9aecf5f89?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className='flex-1 h-[200px] w-[100%]' alt="" />
-    <h1 className='text-2xl my-2 hover:underline hover:cursor-pointer'>
-            Tiffany Haddish DUI: Comedian says she will get help after driving under influence arrest
-    </h1>
-    <p className='text-slate-400 text-lg'>
-    Tiffany Haddish DUI: Comedian says she will get help after driving under influence arrest Published 10 hours ago Share close panel Share page Copy link About sharing Image source, Getty Images Image caption
-    </p>
-
-    </div>
-   
-    </section>
-
+            <div class="space-y-3 mt-12">
+              <div class="grid grid-cols-3 gap-4">
+                <div class="h-2 bg-primary rounded col-span-2"></div>
+                <div class="h-2 bg-primary rounded col-span-1"></div>
+                <div class="h-2 bg-primary rounded col-span-2"></div>
+                <div class="h-2 bg-primary rounded col-span-1"></div>
+              </div>
+              <div class="h-2 bg-primary rounded"></div>
+              <div class="h-2 bg-primary rounded"></div>
+              <div class="h-2 bg-primary rounded"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   )
+
+  return (
+    <section className='flex flex-col md:flex-row h-[70vh] max-w-screen-2xl mx-auto py-12'>
+
+      {isLoading ? (
+        <LoadingSkeleton />
+      ): (
+        <>
+          <div className='flex-4   p-4 mr-8 flex shadow-lg shadow-black-500/50' onClick={() => handleArticleClicked(firstHeadline.title)}>
+            <div className='flex flex-col mr-3 max-w-lg' >
+              <h1 className='text-4xl mb-2 underline underline-offset-4 hover:cursor-pointer'>
+                {firstHeadline.title || ""}
+              </h1>
+              <p className='flex-1 text-lg text-slate-400'>
+                {firstHeadline.description || ""}
+              </p>
+            </div>
+            <img src={firstHeadline.image_url || ""} className='flex-1 h-[400px] object-cover max-w-xl' alt="" />
+          </div>
+
+          <div className='flex-1 w-[30%] shadow-lg shadow-black-500/50' onClick={() => handleArticleClicked(secondHeadline.title)}>
+            <img src={secondHeadline.image_url || ""} className='flex-1 h-[200px] w-[100%] object-cover' alt="" />
+            <h1 className='text-2xl my-2 hover:underline hover:cursor-pointer'>
+              {secondHeadline.title || ""}
+            </h1>
+            <p className='text-slate-400 text-lg'>
+              {secondHeadline.description || ""}
+            </p>
+          </div>
+        </>
+      )}
+
+    </section>
+  );
 }
+

@@ -7,31 +7,34 @@ import FilteringNewsSection from './components/FilteringNewsSection';
 export default function ArticlesIndex() {
 
   const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   
-  // useEffect(() => {
-  //   newsAPI.get('/news', {
-  //     params: {
-  //      category: 'entertainment',
-  //     //  language: 'english',
-  //      country: 'us',
-  //      full_content: 1,
-  //      image: 1,
-  //     }
-  //   })
-  //   .then(res => setArticles(res.data.results))
-  //   .catch(err => console.error(err))
-  // }, [])
-
-  // TEST LUARAN DATA
   useEffect(() => {
-    console.log("DATANYA DISINI", articles);
-  }, [articles])
+    setIsLoading(true);
 
+    newsAPI.get('/news', {
+      params: {
+       category: 'entertainment',
+      //  language: 'english',
+       country: 'us',
+       full_content: 1,
+       image: 1,
+       q: 'movie release'
+      }
+    })
+    .then(res => {
+      setArticles(res.data.results);
+      setIsLoading(false);
+    })
+    .catch(err => console.error(err))
+  }, [])
+
+  
   return (
     <main>
-      <HeadlineSection />
       <FilteringNewsSection />
-      <ListArticlesSection />
+      <HeadlineSection firstHeadline={articles[0]} secondHeadline={articles[1]} isLoading={isLoading} />
+      <ListArticlesSection articles={articles} />
     </main>
   )
 }
