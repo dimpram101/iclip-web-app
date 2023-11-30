@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  
+  const [search, setSearch] = useState("")
   const formSubmitHandler = (e) => {
     e.preventDefault();
-    navigate("/browse");
-  };
+    navigate(`/search?query=${search}`);
+  }; 
 
   return (
     <nav className="h-[112px] fixed top-0 left-0 w-full bg-primary text-white z-50">
@@ -23,6 +23,7 @@ const Navbar = () => {
             <FaSearch size={20} className="absolute top-3 left-4" />
             <input
               type="text"
+              onChange = {(e)=> setSearch (e.target.value)}  
               className="w-full h-full bg-transparent border border-opacity-50 border-white pl-12 rounded-md focus:outline-none text-lg"
               placeholder="Search..."
             />

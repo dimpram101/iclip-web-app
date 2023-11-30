@@ -9,6 +9,7 @@ import {
 import Home from "./pages/Home";
 import GenreIndex from "./pages/genre/GenreIndex";
 import MovieDetailIndex from "./pages/movies/MovieDetailIndex";
+import DetailSearch from "./pages/search/detailSearch";
 
 // ini routingannya, disesuaikan aja nama routenya sama fitur kalian,
 // kalo mau bikin route baru, bikin <Route path="/nama-routenya" element={<NamaComponentnya />} />
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
 
       {/* Routingan kalian */}
       <Route path="/browse" element={<GenreIndex />} />
+      <Route path="/search" element={<DetailSearch/>} />
       <Route path="/movie/:id" element={<MovieDetailIndex />} />
     </Route>
   )
