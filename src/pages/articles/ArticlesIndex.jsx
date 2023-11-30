@@ -6,6 +6,7 @@ import FilteringNewsSection from './components/FilteringNewsSection';
 
 export default function ArticlesIndex() {
 
+  const [searchQuery, setSearchQuery] = useState('movie release')
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   
@@ -19,7 +20,7 @@ export default function ArticlesIndex() {
        country: 'us',
        full_content: 1,
        image: 1,
-       q: 'movie release'
+       q: searchQuery
       }
     })
     .then(res => {
@@ -32,7 +33,7 @@ export default function ArticlesIndex() {
   
   return (
     <main>
-      <FilteringNewsSection />
+      <FilteringNewsSection setSearchQuery={setSearchQuery} />
       <HeadlineSection firstHeadline={articles[0]} secondHeadline={articles[1]} isLoading={isLoading} />
       <ListArticlesSection articles={articles} />
     </main>

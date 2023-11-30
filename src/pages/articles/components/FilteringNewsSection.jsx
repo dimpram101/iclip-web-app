@@ -2,29 +2,17 @@ import React, { useState } from 'react';
 
 import newsAPI from '../../../api/newsAPI';
 
-export default function FilteringNewsSection() {
+export default function FilteringNewsSection({setSearchQuery}) {
     const [searchKey, setSearchKey] = useState("");
 
     const handleInputChange = (evt) => {
         setSearchKey(evt.target.value);
-      }
+    }
     
     
     const handleNewsSearching = () => {
-          newsAPI.get('/news', {
-            params: {
-             category: 'entertainment',
-             country: 'us',
-             full_content: 1,
-             image: 1,
-             qInTitle: searchKey
-            }
-          })
-          .then(res => console.log(res.data.results))
-          .catch(err => console.error(err))
-      }
-
-
+        setSearchQuery(searchKey);
+  }
 
   return (
     <section className='max-w-screen-2xl mx-auto pt-6 pb-4 flex justify-end '>
