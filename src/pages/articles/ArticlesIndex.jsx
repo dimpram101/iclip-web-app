@@ -28,9 +28,12 @@ export default function ArticlesIndex() {
       setIsLoading(false);
     })
     .catch(err => console.error(err))
-  }, [])
+  }, [searchQuery])
 
   
+  console.log(searchQuery);
+
+
   return (
     <main>
       <FilteringNewsSection setSearchQuery={setSearchQuery} />
