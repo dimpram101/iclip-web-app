@@ -1,15 +1,16 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   
   const formSubmitHandler = (e) => {
     e.preventDefault();
-    navigate("/browse");
-  };
+    navigate(`/search?query=${search}`);
+  }; 
 
   return (
     <nav className="h-[112px] fixed top-0 left-0 w-full bg-primary text-white z-50">
@@ -23,6 +24,7 @@ const Navbar = () => {
             <FaSearch size={20} className="absolute top-3 left-4" />
             <input
               type="text"
+              onChange = {(e)=> setSearch (e.target.value)}  
               className="w-full h-full bg-transparent border border-opacity-50 border-white pl-12 rounded-md focus:outline-none text-lg"
               placeholder="Search..."
             />
@@ -31,10 +33,24 @@ const Navbar = () => {
         </div>
 
         <div className="flex gap-6 h-full justify-end items-center">
-          <Link to={'/browse'} className="text-xl text-secondary underline underline-offset-4 ">
+          <Link
+            to={'/browse'}
+            className={`text-xl text-secondary text-white ${
+              location.pathname === '/browse' ? 'underline underline-offset-4' : ''
+            }`}
+          >
             Browse All
           </Link>
-          <h1 className="text-xl">Articles</h1>
+
+          <Link
+            to={'/articles'}
+            className={`text-xl text-secondary text-white ${
+              location.pathname === '/articles' ? 'underline underline-offset-4' : ''
+            }`}
+          >
+            Articles
+          </Link>
+          
         </div>
       </div>
     </nav>
