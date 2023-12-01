@@ -29,6 +29,7 @@ const router = createBrowserRouter(
 
       {/* Routingan kalian */}
       <Route path="/browse" element={<GenreIndex />} />
+      <Route path="/search" element={<DetailSearch/>} />
       <Route path="/movie/:id" element={<MovieDetailIndex />} />
 
       <Route path="/articles" element={<ArticlesIndex />} />
