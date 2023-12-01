@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const [search, setSearch] = useState("")
+  const location = useLocation();
+  
   const formSubmitHandler = (e) => {
     e.preventDefault();
     navigate(`/search?query=${search}`);
@@ -32,10 +33,24 @@ const Navbar = () => {
         </div>
 
         <div className="flex gap-6 h-full justify-end items-center">
-          <Link to={'/browse'} className="text-xl text-secondary underline underline-offset-4 ">
+          <Link
+            to={'/browse'}
+            className={`text-xl text-secondary text-white ${
+              location.pathname === '/browse' ? 'underline underline-offset-4' : ''
+            }`}
+          >
             Browse All
           </Link>
-          <h1 className="text-xl">Articles</h1>
+
+          <Link
+            to={'/articles'}
+            className={`text-xl text-secondary text-white ${
+              location.pathname === '/articles' ? 'underline underline-offset-4' : ''
+            }`}
+          >
+            Articles
+          </Link>
+          
         </div>
       </div>
     </nav>
