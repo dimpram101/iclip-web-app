@@ -9,6 +9,7 @@ import {
 import Home from "./pages/Home";
 import GenreIndex from "./pages/genre/GenreIndex";
 import MovieDetailIndex from "./pages/movies/MovieDetailIndex";
+import DetailSearch from "./pages/search/DetailSearch";
 import ArticlesIndex from "./pages/articles/ArticlesIndex";
 import ArticleDetailIndex from "./pages/article-detail/ArticleDetailIndex";
 
@@ -29,12 +30,11 @@ const router = createBrowserRouter(
 
       {/* Routingan kalian */}
       <Route path="/browse" element={<GenreIndex />} />
-      <Route path="/search" element={<DetailSearch/>} />
+      <Route path="/search" element={<DetailSearch />} />
       <Route path="/movie/:id" element={<MovieDetailIndex />} />
 
       <Route path="/articles" element={<ArticlesIndex />} />
       <Route path="/articles/:id" element={<ArticleDetailIndex />} />
-
     </Route>
   )
 );
