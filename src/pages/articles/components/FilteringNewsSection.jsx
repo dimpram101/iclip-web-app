@@ -23,7 +23,7 @@ export default function FilteringNewsSection({setSearchQuery}) {
           type="text"
           id="search"
           name="search"
-          class="p-2 w-full border rounded-md bg-primary outline-none"
+          class="p-2 w-full border rounded-md bg-primary outline-none border-0 p-3"
           placeholder="Enter your search term"
           onChange={handleInputChange}
         />

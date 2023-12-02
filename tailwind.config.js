@@ -13,6 +13,9 @@ export default {
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
+      },
+      backgroundImage: {
+        'hero-banner': "url('hero.png')",
       }
     },
   },
