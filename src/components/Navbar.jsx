@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [search, setSearch] = React.useState('')
   
   const formSubmitHandler = (e) => {
     e.preventDefault();
