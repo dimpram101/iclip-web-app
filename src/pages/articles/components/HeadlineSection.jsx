@@ -9,7 +9,7 @@ export default function HeadlineSection({ firstHeadline = {}, secondHeadline = {
   }
 
 
-  function limitWords(description, limit) {
+  function limitWords(description = "lorem ipsum dolor", limit = 0) {
     const words = description.split(' ');
   
     if (words.length > limit) {
@@ -65,14 +65,14 @@ export default function HeadlineSection({ firstHeadline = {}, secondHeadline = {
   )
 
   return (
-    <section className='flex flex-col md:flex-row lg:h-[70vh] max-w-screen-2xl mx-auto py-12 gap-4'>
+    <section className='flex flex-col lg:flex-row lg:h-[70vh] lg:max-h-[700px] max-w-screen-2xl mx-auto py-12 gap-4'>
 
       {isLoading ? (
         <LoadingSkeleton />
       ): (
         <>
-          <div className='lg:flex-4 py-8 px-2 md:mr-8 flex shadow-lg shadow-black-500/50 flex flex-col md:flex-row' onClick={() => handleArticleClicked(firstHeadline.title)}>
-            <div className='flex flex-col mr-3 max-w-lg' >
+          <div className='lg:flex-4 py-8 px-2 md:mr-8 flex shadow-lg shadow-black-500/50 flex flex-col lg:flex-row' onClick={() => handleArticleClicked(firstHeadline.title)}>
+            <div className='flex flex-col lg:mr-3 lg:max-w-lg' >
               <h1 className='text-4xl mb-2 underline underline-offset-4 hover:cursor-pointer'>
                 {firstHeadline.title || ""}
               </h1>
@@ -85,7 +85,7 @@ export default function HeadlineSection({ firstHeadline = {}, secondHeadline = {
               </p>
 
             </div>
-            <img src={firstHeadline.image_url || ""} className='flex-1 lg:h-[400px] object-cover max-w-xl' alt="" />
+            <img src={firstHeadline.image_url || ""} className='flex-1 lg:h-[400px] object-cover lg:max-w-xl' alt="" />
           </div>
 
           <div className='lg:flex-1 lg:w-[30%]  py-8 px-2  shadow-lg shadow-black-500/50' onClick={() => handleArticleClicked(secondHeadline.title)}>
@@ -93,14 +93,9 @@ export default function HeadlineSection({ firstHeadline = {}, secondHeadline = {
             <h1 className='text-2xl my-2 hover:underline hover:cursor-pointer'>
               {secondHeadline.title || ""}
             </h1>
-            <p className='text-slate-400 text-lg hidden md:block'>
-              {limitWords(secondHeadline.description, 30) || ""}
+            <p className='text-slate-400 text-lg hidden md:block overflow-scroll'>
+              {limitWords(secondHeadline.description, 15) || ""}
             </p>
-
-            <p className='flex-1 text-md text-slate-400 md:hidden'>
-                {limitWords(firstHeadline.description, 15) || ""}
-              </p>
-
           </div>
         </>
       )}

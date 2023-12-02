@@ -35,9 +35,15 @@ export default function ArticlesIndex() {
 
 
   return (
-    <main>
+    <main className='p-6'>
       <FilteringNewsSection setSearchQuery={setSearchQuery} />
       <HeadlineSection firstHeadline={articles[0]} secondHeadline={articles[1]} isLoading={isLoading} />
+
+      <section className='max-w-screen-2xl mx-auto'>
+        <div className="w-6xl h-0.5 bg-gray-800"></div>
+        <h2 className='text-secondary text-3xl my-6'>Top News</h2>
+      </section>
+
       <ListArticlesSection articles={articles} />
     </main>
   )
