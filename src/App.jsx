@@ -12,6 +12,8 @@ import MovieDetailIndex from "./pages/movies/MovieDetailIndex";
 import DetailSearch from "./pages/search/DetailSearch";
 import ArticlesIndex from "./pages/articles/ArticlesIndex";
 import ArticleDetailIndex from "./pages/article-detail/ArticleDetailIndex";
+import BrowseAllPage from "./pages/bap/BrowseAllPageIndex";
+
 
 // ini routingannya, disesuaikan aja nama routenya sama fitur kalian,
 // kalo mau bikin route baru, bikin <Route path="/nama-routenya" element={<NamaComponentnya />} />
@@ -35,6 +37,8 @@ const router = createBrowserRouter(
 
       <Route path="/articles" element={<ArticlesIndex />} />
       <Route path="/articles/:id" element={<ArticleDetailIndex />} />
+      <Route path="/browseallpage" element={<BrowseAllPage/>} />
+
     </Route>
   )
 );
