@@ -93,7 +93,7 @@ export default function HeadlineSection({ firstHeadline = {}, secondHeadline = {
             <h1 className='text-2xl my-2 hover:underline hover:cursor-pointer'>
               {secondHeadline.title || ""}
             </h1>
-            <p className='text-slate-400 text-lg hidden md:block overflow-scroll'>
+            <p className='text-slate-400 text-lg hidden md:block'>
               {limitWords(secondHeadline.description, 15) || ""}
             </p>
           </div>

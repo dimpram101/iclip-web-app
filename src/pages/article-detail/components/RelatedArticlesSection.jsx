@@ -23,11 +23,6 @@ export default function RelatedArticlesSection() {
   }, [])
 
 
-  // const handleArticleClick = (title) => {
-  //   navigation(`/articles/${title}`);
-  // };
-
-
   return (
     <section>
 
@@ -35,7 +30,7 @@ export default function RelatedArticlesSection() {
     
     <div className="mb-16 max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 overflow-x-auto">
     {articles.slice(0, 8).map(article => (
-      <Link to={`/articles/${article.title}`} key={article.article_id} className="p-4 flex-1 shadow-lg shadow-black-500/50 hover:cursor-pointer">
+      <Link to={`/articles/"${article.title}"`} key={article.article_id} className="p-4 flex-1 shadow-lg shadow-black-500/50 hover:cursor-pointer">
         <img
           src={article.image_url}
           className="flex-1 h-[200px] w-[100%] object-cover"
