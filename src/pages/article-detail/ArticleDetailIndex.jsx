@@ -48,8 +48,8 @@ export default function ArticleDetailIndex() {
 
 
     return (
-        <main className='max-w-screen-2xl mx-auto'>
-            <h1 className='text-center text-white text-5xl max-w-6xl mx-auto pt-12'>{article.title || ""}</h1>
+        <main className='max-w-screen-2xl mx-auto p-6 md:p-12 lg:p-4 relative'>
+            <h1 className='text-center text-white text-4xl md:text-5xl max-w-6xl mx-auto pt-12'>{article.title || ""}</h1>
             <p className='text-center italic text-gray-500 mt-2'>Published at {article.pubDate || ""} by ICLIP Admin</p>
             <img src={article.image_url || ""} className='mx-auto max-w-6xl my-4 border border-0 rounded-2xl' alt="" />
 
@@ -62,6 +62,8 @@ export default function ArticleDetailIndex() {
 
             <RelatedArticlesSection />
         
+
+          
 
         </main>
     )
