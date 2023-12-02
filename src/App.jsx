@@ -18,12 +18,12 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<MainLayout />}>
       <Route index element={<Home />} />
-      <Route path="/browse" element={<GenreIndex />} />
+      <Route path="/browse" element={<BrowseAllPage/>} />
+      <Route path="/browse/genre" element={<GenreIndex />} />
       <Route path="/search" element={<DetailSearch />} />
       <Route path="/movie/:id" element={<MovieDetailIndex />} />
       <Route path="/articles" element={<ArticlesIndex />} />
       <Route path="/articles/:id" element={<ArticleDetailIndex />} />
-      <Route path="/browseallpage" element={<BrowseAllPage/>} />
     </Route>
   )
 );
